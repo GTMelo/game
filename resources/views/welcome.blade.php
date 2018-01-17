@@ -65,29 +65,43 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Load Game</a>
-                        <a href="{{ route('register') }}">New Game</a>
-                    @endauth
+        <div id="app">
+            <div class="logo">
+                <h1>Game.Local</h1>
+            </div>
+            <div class="options">
+                <div class="option newgame">
+                    <h1>Load Game</h1>
+                    <form action="/register" method="post">
+                        <div class="input">
+                            <label for="new_username">Username</label>
+                            <input type="text" name="new_username">
+                        </div>
+                        <div class="input">
+                            <label for="new_password">Password</label>
+                            <input type="password" name="new_password">
+                        </div>
+                        <div class="input">
+                            <label for="new_password_confirmation">Password confirmation</label>
+                            <input type="password" name="new_password_confirmation">
+                        </div>
+                        <button id="new_submit" type="submit">Start</button>
+                    </form>
                 </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="option loadgame">
+                    <h1>New Game</h1>
+                    <form action="/login" method="post">
+                        <div class="input">
+                            <label for="load_username">Username</label>
+                            <input type="text" name="load_username">
+                        </div>
+                        <div class="input">
+                            <label for="load_password">Password</label>
+                            <input type="password" name="load_password">
+                        </div>
+                        <button type="submit">Start</button>
+                    </form>
                 </div>
             </div>
         </div>
