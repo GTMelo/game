@@ -71,36 +71,42 @@
             </div>
             <div class="options">
                 <div class="option newgame">
-                    <h1>Load Game</h1>
+                    <h1>New Game</h1>
                     <form action="/register" method="post">
+                        {{ csrf_field() }}
                         <div class="input">
-                            <label for="new_username">Username</label>
-                            <input type="text" name="new_username">
+                            <label for="name">Username</label>
+                            <input id="new_name" type="text" name="name">
                         </div>
                         <div class="input">
-                            <label for="new_password">Password</label>
-                            <input type="password" name="new_password">
+                            <label for="password">Password</label>
+                            <input id="new_password" type="password" name="password">
                         </div>
                         <div class="input">
-                            <label for="new_password_confirmation">Password confirmation</label>
-                            <input type="password" name="new_password_confirmation">
+                            <label for="password_confirmation">Password confirmation</label>
+                            <input id="new_password_confirmation" type="password" name="password_confirmation">
                         </div>
-                        <button id="new_submit" type="submit">Start</button>
+                        <div class="input">
+                            <label for="email">Email</label>
+                            <input id="new_email" type="email" name="email">
+                        </div>
+                        <input type="submit" id="new_submit" value="Start">
                     </form>
                 </div>
 
                 <div class="option loadgame">
-                    <h1>New Game</h1>
-                    <form action="/login" method="post">
+                    <h1>Load Game</h1>
+                    <form method="POST" action="{{ route('login') }}">
+                        {{ csrf_field() }}
                         <div class="input">
-                            <label for="load_username">Username</label>
-                            <input type="text" name="load_username">
+                            <label for="name">Username</label>
+                            <input id="load_name" type="text" name="name">
                         </div>
                         <div class="input">
-                            <label for="load_password">Password</label>
-                            <input type="password" name="load_password">
+                            <label for="password">Password</label>
+                            <input id="load_password" type="password" name="password">
                         </div>
-                        <button type="submit">Start</button>
+                        <input type="submit" id="load_submit" value="Load Game">
                     </form>
                 </div>
             </div>
