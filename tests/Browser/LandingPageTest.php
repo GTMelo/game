@@ -32,7 +32,6 @@ class LandingPageTest extends DuskTestCase
     */
     public function a_guest_can_create_a_new_account(){
         $this->browse(function (Browser $browser) {
-
             $u = factory(User::class)->make();
 
             $browser->visit(new HomePage)

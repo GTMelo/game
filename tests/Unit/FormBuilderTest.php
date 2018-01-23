@@ -106,6 +106,39 @@ class FormBuilderTest extends TestCase
         self::assertEquals('<form><input></form>', $form->build());
     }
 
+    /** @test
+    * This test should check if: an input can be created with a type
+    */
+    public function an_input_can_be_created_with_a_type(){
+        $f = FieldBuilder::new('text');
+        $this->assertEquals('text', $f->getType());
+    }
+
+    /** @test
+    * This test should check if: an input can be built as a text input
+    */
+    public function an_input_can_be_built_as_a_text_input(){
+        $f = FieldBuilder::new('text');
+        $this->assertEquals('<input type="text">', $f->build());
+    }
+
+    /** @test
+    * This test should check if: an input can be build as a password input
+    */
+    public function an_input_can_be_build_as_a_password_input(){
+        $f = FieldBuilder::new('password');
+        $this->assertEquals('<input type="password">', $f->build());
+    }
+
+    /** @test
+    * This test should check if: an input can be built as a select input
+    */
+    public function an_input_can_be_built_as_a_select_input(){
+        $f = FieldBuilder::new('select');
+        $f->addOption('value', 'label');
+        $this->assertEquals('<select><option value="value">label</option></select>', $f->build());
+    }
+
     // TODO create stuff for inputs
     
 
