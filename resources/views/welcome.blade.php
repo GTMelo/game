@@ -6,63 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
     </head>
     <body>
         <div id="app">
@@ -72,42 +15,12 @@
             <div class="options">
                 <div class="option newgame">
                     <h1>New Game</h1>
-                    <form action="/register" method="post">
-                        {{ csrf_field() }}
-                        <div class="input">
-                            <label for="name">Username</label>
-                            <input id="new_name" type="text" name="name">
-                        </div>
-                        <div class="input">
-                            <label for="password">Password</label>
-                            <input id="new_password" type="password" name="password">
-                        </div>
-                        <div class="input">
-                            <label for="password_confirmation">Password confirmation</label>
-                            <input id="new_password_confirmation" type="password" name="password_confirmation">
-                        </div>
-                        <div class="input">
-                            <label for="email">Email</label>
-                            <input id="new_email" type="email" name="email">
-                        </div>
-                        <input type="submit" id="new_submit" value="Start">
-                    </form>
+                    @include('forms.register')
                 </div>
 
                 <div class="option loadgame">
                     <h1>Load Game</h1>
-                    <form method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-                        <div class="input">
-                            <label for="name">Username</label>
-                            <input id="load_name" type="text" name="name">
-                        </div>
-                        <div class="input">
-                            <label for="password">Password</label>
-                            <input id="load_password" type="password" name="password">
-                        </div>
-                        <input type="submit" id="load_submit" value="Load Game">
-                    </form>
+                    @include('forms.login')
                 </div>
             </div>
         </div>
